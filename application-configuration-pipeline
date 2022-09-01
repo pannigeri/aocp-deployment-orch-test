@@ -6,9 +6,9 @@ pipeline{
   extendedChoice defaultValue: '', description: 'Features as input to the deployment-orchestration-pipeline', descriptionPropertyValue: '', multiSelectDelimiter: ',', name: 'feature', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'feature 1, feature 2, feature 3', visibleItemCount: 5
 }
 stages{
-    stage("Terraform Provisioning"){
+    stage("Application configuration"){
         steps{
-            sh "echo 'Terraform provisioning with version: ${params.version}, features: ${params.feature}'"
+            sh "echo 'Ansible scripts in no specific order with parameters version: ${params.version}, features: ${params.feature}'"
         }
     }
 }
