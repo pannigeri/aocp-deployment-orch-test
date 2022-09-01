@@ -7,6 +7,11 @@ pipeline{
 }
 
 stages{
+    stage("Access CosmoDB"){
+        steps{
+            sh "echo 'R/W to database using Jenkins shared library CosmoDB facade'"
+        }
+    }
     stage("Checking Parameters"){
         steps{
             sh "echo '${params.version}, ${params.feature}'"
