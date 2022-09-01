@@ -14,17 +14,17 @@ stages{
     }
     stage("Calling Terraform Orchestration pipeline"){
         steps{
-            build job: 'terraform-orchestration', parameters: [string(name: 'version', value: '1.3'), extendedChoice(name: 'feature', value: '')]
+            build job: 'terraform-orchestration', parameters: [string(name: 'version', value: ${params.version} ), extendedChoice(name: 'feature', value: ${params.feature})]
         }
     }
     stage("Calling OCP Configuration pipeline"){
         steps{
-            build job: 'ocp-configuration', parameters: [string(name: 'version', value: '1.3'), extendedChoice(name: 'feature', value: '')]
+            build job: 'ocp-configuration', parameters: [string(name: 'version', value: ${params.version}), extendedChoice(name: 'feature', value: ${params.feature})]
         }
     }
     stage("Calling Application Configuration pipeline"){
         steps{
-            build job: 'application-configuration', parameters: [string(name: 'version', value: '1.3'), extendedChoice(name: 'feature', value: '')]
+            build job: 'application-configuration', parameters: [string(name: 'version', value: ${params.version}), extendedChoice(name: 'feature', value: ${params.feature})]
         }
     }
 }
