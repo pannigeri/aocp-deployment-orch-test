@@ -15,7 +15,7 @@ stages{
     stage("Calling Terraform Orchestration pipeline"){
         steps{
             script{
-            build job: 'terraform-orchestration', parameters: [string(name: 'version', value: '${params.version}' ), extendedChoice(name: 'feature', value: '${params.feature}')]
+            build job: 'terraform-orchestration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
                }
         }
     }
