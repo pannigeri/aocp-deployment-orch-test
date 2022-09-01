@@ -1,5 +1,5 @@
 pipeline{
-    agent {label 'linux'}
+    agent any
 
     parameters {
   choice choices: ['1.1', '1.3', '1.5', '2.1'], description: 'The version', name: 'version'
