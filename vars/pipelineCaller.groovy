@@ -6,7 +6,7 @@ def call(Map pipelineParams) {
           steps {
             build job: pipelineParams.name, 
             parameters: [
-            string(name: 'version', value: pipelineParams.version,
+            string(name: 'version', value: pipelineParams.version),
             extendedChoice(name: 'feature', value: pipelineParams.feature)
             ]
           }
