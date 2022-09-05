@@ -22,9 +22,9 @@ stages{
     stage("Calling Terraform Orchestration pipeline"){
         steps{
             pipelineCaller(
-                "terraform-orchestration",
-                String.valueOf(params.version),
-                String.valueOf(params.feature)
+                name = "terraform-orchestration",
+                version = String.valueOf(params.version),
+                feature = String.valueOf(params.feature)
             )
             // script{
             // build job: 'terraform-orchestration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
