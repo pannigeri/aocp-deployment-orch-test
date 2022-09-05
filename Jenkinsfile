@@ -33,16 +33,26 @@ stages{
     }
     stage("Calling OCP Configuration pipeline"){
         steps{
-            script{
-            build job: 'ocp-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
-        }
+            pipelineCaller(
+                name : "ocp-configuration",
+                version : String.valueOf(params.version),
+                feature : String.valueOf(params.feature)
+            )
+        //     script{
+        //     build job: 'ocp-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
+        // }
         }
     }
     stage("Calling Application Configuration pipeline"){
         steps{
-            script{
-            build job: 'application-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
-        }
+            pipelineCaller(
+                name : "application-configuration",
+                version : String.valueOf(params.version),
+                feature : String.valueOf(params.feature)
+            )
+        //     script{
+        //     build job: 'application-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
+        // }
         }
     }
 }
