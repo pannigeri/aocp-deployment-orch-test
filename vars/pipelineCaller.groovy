@@ -1,7 +1,7 @@
-def call(String name, String version, String feature) {   
-            build job: name, 
+def call(Map config) {   
+            build job:config.name, 
             parameters: [
-            string(name: 'version', value: version),
-            extendedChoice(name: 'feature', value: feature)
+            string(name: 'version', value: config.version),
+            extendedChoice(name: 'feature', value: config.feature)
             ]
 }
