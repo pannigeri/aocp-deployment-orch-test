@@ -1,11 +1,7 @@
-def call(body) {   
-            def params= [:]
-            body.resolveStrategy = Closure.DELEGATE_FIRST
-            body.delegate = params
-            body()
-            build job: params.name, 
+def call(String name, String version, List<string> feature) {   
+            build job: name, 
             parameters: [
-            string(name: 'version', value: params.version),
-            extendedChoice(name: 'feature', value: params.feature)
+            string(name: 'version', value: version),
+            extendedChoice(name: 'feature', value: feature)
             ]
 }
