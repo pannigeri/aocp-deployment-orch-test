@@ -5,6 +5,6 @@ def call(String[] pipelines){
             version : String.valueOf(version),
             feature : String.valueOf(feature)
         ) */
-        sh 'echo "${it}"'
+        sh "echo '${it}'"
     }
 }
