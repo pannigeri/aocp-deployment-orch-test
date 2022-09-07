@@ -1,5 +1,5 @@
 def call(String[] pipelines){
-    pipelines.each{
+    pipelines.each(){
         /* pipelineCaller(
             name : ${it},
             version : String.valueOf(version),
