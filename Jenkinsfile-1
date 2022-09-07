@@ -21,7 +21,7 @@ pipeline{
         }
         stage("Run pipelines"){
             steps{
-                mainPipeline(["terraform-orchestration", "ocp-configuration", "application-configuration"], ${params.version}, ${params.feature})
+                mainPipeline(["terraform-orchestration", "ocp-configuration", "application-configuration"], "${params.version}", "${params.feature}")
             }
         }
     }
