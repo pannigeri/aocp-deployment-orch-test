@@ -1,10 +1,10 @@
 def call(String[] pipelines){
     pipelines.each(){
-        /* pipelineCaller(
+        pipelineCaller(
             name : ${it},
-            version : String.valueOf(version),
-            feature : String.valueOf(feature)
-        ) */
-        sh "echo '${it}'"
+            /* version : String.valueOf(version),
+            feature : String.valueOf(feature) */
+        )
+        
     }
 }
