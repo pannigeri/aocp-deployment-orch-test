@@ -5,7 +5,7 @@ def call(Map pipelineParams) {
         stages {
             stage('checkout git') {
             steps {
-                git branch: pipelineParams.branch, credentialsId: 'avaya-automation github user', url: pipelineParams.scmUrl
+                git branch: pipelineParams.branch, url: pipelineParams.scmUrl
             }
         }            
         }
