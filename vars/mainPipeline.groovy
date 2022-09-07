@@ -1,4 +1,4 @@
-def call(String... pipelines, String version, String feature){
+def call(String[] pipelines, String version, String feature){
     pipelines.each{
         /* pipelineCaller(
             name : ${it},
