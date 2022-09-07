@@ -3,7 +3,7 @@ def call(String version, String feature, String... pipelines){
         pipeline{
             agent any
             stages{
-                stage("Building pipeline ${it}"){
+                stage("Building pipeline "){
                     pipelineCaller(
                         name : "${it}",
                         version : String.valueOf(version),
