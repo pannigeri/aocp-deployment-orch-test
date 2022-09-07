@@ -4,11 +4,13 @@ def call(String version, String feature, String... pipelines){
             agent any
             stages{
                 stage("Building pipeline "){
-                    pipelineCaller(
-                        name : "${it}",
-                        version : String.valueOf(version),
-                        feature : String.valueOf(feature)
-                    )
+                    steps{
+                        pipelineCaller(
+                            name : "${it}",
+                            version : String.valueOf(version),
+                            feature : String.valueOf(feature)
+                        )
+                    }
                 }
             }
         }
