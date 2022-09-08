@@ -74,7 +74,7 @@ stages{
           }
           
          }
-         sh "echo ${results} > report.txt"
+         sh "echo ${results} > result.txt"
         //     script{
         //     build job: 'application-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
         // }
