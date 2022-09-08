@@ -72,7 +72,7 @@ stages{
           else{
            results.add("Application Configuration pipeline build is unsuccessful.")
           }
-          echo "${results}" > 'result.txt'
+          echo ${results} > 'result.txt'
          }
         //     script{
         //     build job: 'application-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
