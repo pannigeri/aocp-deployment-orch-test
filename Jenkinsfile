@@ -29,7 +29,7 @@ stages{
                 feature : String.valueOf(params.feature)
             )
           if (b.result == 'SUCCESS') {
-           results << "Terraform orchestration pipeline build is successful."}
+           results << "Terraform orchestration pipeline build is successful."
           }
          echo "${results}"
          }
