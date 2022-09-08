@@ -1,3 +1,4 @@
+def runs = []
 def call(Map config) { 
             script{
             runs << build(job:config.name, parameters: [
