@@ -29,9 +29,9 @@ stages{
                 feature : String.valueOf(params.feature)
             )
           if (b.result[0] == 'SUCCESS') {
-           results.add("Terraform orchestration pipeline build is successful.\n")
+           results.add("Terraform orchestration pipeline build is successful")
           } else{
-           results.add("Terraform Orchestration pipeline build is unsuccessful.\n")
+           results.add("Terraform Orchestration pipeline build is unsuccessful")
           }
          }
             // script{
@@ -48,9 +48,9 @@ stages{
                 feature : String.valueOf(params.feature)
             )
          if (b.result[0] == 'SUCCESS') {
-           results.add("OCP Configuration pipeline build is successful.\n")
+           results.add("OCP Configuration pipeline build is successful")
           } else{
-           results.add("OCP Configuration pipeline build is unsuccessful.\n")
+           results.add("OCP Configuration pipeline build is unsuccessful")
           }
          }
         //     script{
@@ -67,10 +67,10 @@ stages{
                 feature : String.valueOf(params.feature)
             )
         if (b.result[0] == 'SUCCESS') {
-           results.add("Application Configuration pipeline build is successful.\n")
+           results.add("Application Configuration pipeline build is successful")
           }
           else{
-           results.add("Application Configuration pipeline build is unsuccessful.\n")
+           results.add("Application Configuration pipeline build is unsuccessful")
           }
           
          }
