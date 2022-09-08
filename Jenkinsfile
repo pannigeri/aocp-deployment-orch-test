@@ -28,11 +28,11 @@ stages{
                 version : String.valueOf(params.version),
                 feature : String.valueOf(params.feature)
             )
-          echo "${b.result[0]}"
-          if (b.result == 'SUCCESS') {
+          if (b.result[0] == 'SUCCESS') {
            results.add("Terraform orchestration pipeline build is successful.")
+          } else{
+           results.add("Terraform Orchestration pipeline build is unsuccessful.")
           }
-         echo "${results}"
          }
             // script{
             // build job: 'terraform-orchestration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
@@ -47,7 +47,11 @@ stages{
                 version : String.valueOf(params.version),
                 feature : String.valueOf(params.feature)
             )
-         echo "${b}"
+         if (b.result[0] == 'SUCCESS') {
+           results.add("OCP Configuration pipeline build is successful.")
+          } else{
+           results.add("OCP Configuration pipeline build is unsuccessful.")
+          }
          }
         //     script{
         //     build job: 'ocp-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
@@ -62,7 +66,12 @@ stages{
                 version : String.valueOf(params.version),
                 feature : String.valueOf(params.feature)
             )
-         echo "${b}"
+        if (b.result[0] == 'SUCCESS') {
+           results.add("Application Configuration pipeline build is successful.")
+          }
+          else{
+           results.add("Application Configuration pipeline build is unsuccessful.")
+          }
          }
         //     script{
         //     build job: 'application-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
@@ -70,6 +79,11 @@ stages{
         }
     }
 }
+ post {
+    always {
+      script {
+       archiveArtifacts artifacts: ${results}, onlyIfSuccessful: true
+      }}}
 }
 
 
