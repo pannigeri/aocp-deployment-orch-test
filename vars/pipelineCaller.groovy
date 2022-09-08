@@ -7,4 +7,5 @@ def call(Map config) {
             ], propagate: false)
             echo "${runs.result}"
             }             
+            return runs
 }
