@@ -22,11 +22,12 @@ stages{
     stage("Calling Terraform Orchestration pipeline"){
         steps{
          script{   
-         pipelineCaller(
+         def b = pipelineCaller(
                 name : "terraform-orchestration",
                 version : String.valueOf(params.version),
                 feature : String.valueOf(params.feature)
             )
+          echo "${b}"
          }
             // script{
             // build job: 'terraform-orchestration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
@@ -35,11 +36,12 @@ stages{
     }
     stage("Calling OCP Configuration pipeline"){
         steps{
-            pipelineCaller(
+            def b = pipelineCaller(
                 name : "ocp-configuration",
                 version : String.valueOf(params.version),
                 feature : String.valueOf(params.feature)
             )
+         echo "${b}"
         //     script{
         //     build job: 'ocp-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
         // }
@@ -47,11 +49,12 @@ stages{
     }
     stage("Calling Application Configuration pipeline"){
         steps{
-            pipelineCaller(
+            def b = pipelineCaller(
                 name : "application-configuration",
                 version : String.valueOf(params.version),
                 feature : String.valueOf(params.feature)
             )
+         echo "${b}"
         //     script{
         //     build job: 'application-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
         // }
