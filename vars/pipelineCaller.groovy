@@ -5,5 +5,6 @@ def call(Map config) {
             extendedChoice(name: 'feature', value: config.feature)
             ]
             env.runs = runs
+            echo "${runs}"
             }             
 }
