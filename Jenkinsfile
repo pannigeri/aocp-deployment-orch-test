@@ -22,13 +22,11 @@ stages{
     stage("Calling Terraform Orchestration pipeline"){
         steps{
          script{   
-         def b = pipelineCaller(
+         pipelineCaller(
                 name : "terraform-orchestration",
                 version : String.valueOf(params.version),
                 feature : String.valueOf(params.feature)
             )
-          env.ip = b.getBuildVariables()["runs"]
-          echo "${env.ip}"
          }
             // script{
             // build job: 'terraform-orchestration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
