@@ -72,6 +72,7 @@ stages{
           else{
            results.add("Application Configuration pipeline build is unsuccessful.")
           }
+          env.results = results
          }
         //     script{
         //     build job: 'application-configuration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
@@ -82,7 +83,7 @@ stages{
  post {
     always {
       script {
-       archiveArtifacts artifacts: ${results}, onlyIfSuccessful: true
+       archiveArtifacts artifacts: env.results, onlyIfSuccessful: true
       }}}
 }
 
