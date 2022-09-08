@@ -30,8 +30,8 @@ stages{
             )
           if (b.result == 'SUCCESS') {
            results << "Terraform orchestration pipeline build is successful."}
-           echo "${results}"
           }
+         echo "${results}"
          }
             // script{
             // build job: 'terraform-orchestration', parameters: [string(name: 'version', value: String.valueOf(params.version)), extendedChoice(name: 'feature', value: String.valueOf(params.feature))]
