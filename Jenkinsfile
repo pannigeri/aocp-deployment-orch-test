@@ -83,7 +83,8 @@ stages{
  post {
     always {
       script {
-       archiveArtifacts artifacts: env.results, onlyIfSuccessful: true
+       echo ${results} > 'result.txt'
+       archiveArtifacts artifacts: 'result.txt', onlyIfSuccessful: true
       }}}
 }
 
