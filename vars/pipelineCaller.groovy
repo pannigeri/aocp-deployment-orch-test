@@ -5,6 +5,6 @@ def call(Map config) {
             string(name: 'version', value: config.version),
             extendedChoice(name: 'feature', value: config.feature)
             ], propagate: false)
-            echo "${runs}"
+            echo "${runs.result}"
             }             
 }
